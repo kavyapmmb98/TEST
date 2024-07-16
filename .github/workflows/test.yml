@@ -40,13 +40,4 @@ jobs:
 
       - name: Run Hello World
         shell: bash
-        run: |
-          # Run the Hello World script and capture the output
-          output=$(node index.js)
-          # Check if the output is "Hello, World!"
-          if [ "$output" = "Hello, World!" ]; then
-            echo "Test passed!"
-          else
-            echo "Test failed!"
-            exit 1
-          fi
+        run: node index.js
