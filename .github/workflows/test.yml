@@ -21,6 +21,12 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      
+    - name: Run linters
+      run: npm run lint
+
+    - name: Run security checks
+      run: npm audit  
 
     - name: Run Hello World
       shell: bash
