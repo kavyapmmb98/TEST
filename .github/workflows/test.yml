@@ -9,34 +9,44 @@ on:
 jobs:
   test:
     runs-on: windows-latest  
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - name: Install PSScriptAnalyzer module
+        shell: pwsh
+        run: |
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Install-Module -Name PSScriptAnalyzer -Force -Repository PSGallery
 
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Run linters
-      run: npm run lint
+      - name: Get list of rules
+        shell: pwsh
+        run: |
+          Get-ScriptAnalyzerRule
 
-    - name: Run security checks
-      run: npm audit  
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Run Hello World
-      shell: bash
-      run: |
-        # Run the Hello World script and capture the output
-        output=$(node index.js)
-        # Check if the output is "Hello, World!"
-        if [ "$output" = "Hello, World!" ]; then
-          echo "Test passed!"
-        else
-          echo "Test failed!"
-          exit 1
-        fi
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run linters
+        run: npm run lint
+
+      - name: Run security checks
+        run: npm audit  
+
+      - name: Run Hello World
+        shell: bash
+        run: |
+          # Run the Hello World script and capture the output
+          output=$(node index.js)
+          # Check if the output is "Hello, World!"
+          if [ "$output" = "Hello, World!" ]; then
+            echo "Test passed!"
+          else
+            echo "Test failed!"
+            exit 1
+          fi

@@ -3,7 +3,6 @@ export default [
       files: ["**/*.js"],
       rules: {
         // Possible Errors
-        "no-console": "warn",
         "no-debugger": "error",
         "no-extra-semi": "error",
         "no-irregular-whitespace": "error",
