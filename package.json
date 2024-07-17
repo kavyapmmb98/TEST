@@ -4,13 +4,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "test": "mocha test/**/*.test.js",
+    "coverage": "nyc --reporter=lcov --reporter=text mocha test/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "eslint": "^9.7.0"
+    "chai": "^5.1.1",
+    "eslint": "^9.7.0",
+    "nyc": "^17.0.0",
+    "sinon": "^18.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.6.0"
   }
 }
