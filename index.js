@@ -1,10 +1,12 @@
+// index.js
 
 console.log("Hello, World!");
 
-function printFirstTenNumbers() {
+export function printFirstTenNumbers() {
     for (let i = 1; i <= 10; i++) {
-        console.log(i);
+        console.log(i); // Output numbers without quotes
     }
 }
+// printFirstTenNumbers()
 
-printFirstTenNumbers();
+console.log("test for pull req ");
