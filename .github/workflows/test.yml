@@ -34,6 +34,8 @@ jobs:
 
       - name: Run linters
         run: npm run lint
+      - name: Run tests
+        run: npm test  
 
       - name: Run security checks
         run: npm audit  
