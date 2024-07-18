@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: Run linters
-        run: npm run lint
+        run: npx eslint index.js
       - name: Run tests
         run: npm test  
 
