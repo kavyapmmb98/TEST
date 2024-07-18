@@ -17,7 +17,7 @@ export default [
         "no-unused-expressions": "error",
   
         // Variables
-        // "no-undef": "error",
+        "no-undef": "error",
         "no-unused-vars": "error",
         "no-use-before-define": "error",
   
