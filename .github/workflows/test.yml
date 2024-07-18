@@ -28,7 +28,7 @@ jobs:
         run: npm test  
 
       - name: Run security checks
-        run: npm audit  
+        run: npm audit --json  # Run npm audit to check for vulnerabilities
 
       - name: Run Hello World
         shell: bash
