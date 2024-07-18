@@ -13,17 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # - name: Install PSScriptAnalyzer module
-      #   shell: pwsh
-      #   run: |
-      #     Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-      #     Install-Module -Name PSScriptAnalyzer -Force -Repository PSGallery
-
-      # - name: Get list of rules
-      #   shell: pwsh
-      #   run: |
-      #     Get-ScriptAnalyzerRule
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -34,6 +23,7 @@ jobs:
 
       - name: Run linters
         run: npm run lint
+
       - name: Run tests
         run: npm test  
 
@@ -43,3 +33,14 @@ jobs:
       - name: Run Hello World
         shell: bash
         run: node index.js
+
+  # Add a new job to run Dependabot
+  dependabot:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Dependabot
+        uses: github/dependabot-action@main
+       
