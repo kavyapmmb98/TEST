@@ -2,10 +2,12 @@
 export default [
   {
       files: ["**/*.js"],
-      env: {
-          node: true,       // This makes ESLint recognize Node.js global variables
-          mocha: true,      // This makes ESLint recognize Mocha global variables
-      },
+      languageOptions: {
+        env: {
+            node: true,    // Recognize Node.js global variables
+            mocha: true,   // Recognize Mocha global variables
+        },
+    },
       rules: {
           // Possible Errors
           "no-debugger": "error",
