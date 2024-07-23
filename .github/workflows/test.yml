@@ -25,7 +25,9 @@ jobs:
         run: npm run lint
 
       - name: Run tests
-        run: npm test  
+        run: npm test 
+      - name: Run code coverage
+        run: npm run coverage  # Generate coverage report   
 
       - name: Run security checks
         run: npm audit --json  # Run npm audit to check for vulnerabilities
